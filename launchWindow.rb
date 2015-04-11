@@ -27,6 +27,7 @@ get '/' do
 end
 
 get '/cards' do 
+  after = params[:after]
   # make call to mongo to get data
   # convert data to json 
   # arrayOfCards.to_json

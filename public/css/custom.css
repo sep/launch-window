@@ -14,5 +14,14 @@ html{
 }
 
 .no-overflow{
-	overflow: hidden;
+	height: 315px;
+	
+    overflow: hidden;
+}
+
+#posts-container{
+   
+    height: 100%;
+    overflow: auto;
+    padding-right: 15px;
 }
