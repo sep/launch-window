@@ -6,6 +6,7 @@ GEM
     celluloid (0.16.0)
       timers (~> 4.0.0)
     daemons (1.2.2)
+    dotenv (2.0.1)
     equalizer (0.0.11)
     eventmachine (1.0.7)
     faraday (0.9.1)
@@ -70,6 +71,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  dotenv (~> 2.0.1)
   foreman (~> 0.78.0)
   haml
   json

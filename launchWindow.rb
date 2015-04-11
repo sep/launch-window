@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'sinatra'
+require 'dotenv'
 
+Dotenv.load
 
 configure do
   enable :sessions
