@@ -30,6 +30,10 @@ get '/' do
   erb :index, :locals => {:launchName => "SpaceX CRS-6 Launch", :launchHastag => "#CRS-6"}
 end
 
+get '/admin' do
+  erb :admin, :locals => {:launchName => "ADMIN PANEL - - - SpaceX CRS-6 Launch", :launchHastag => "#CRS-6"}
+end
+
 get '/cards' do 
   # make call to mongo to get data
   # convert data to json 

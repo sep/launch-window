@@ -1,0 +1,28 @@
+<div class="row">
+	<div id="unpushed-posts-container" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+	<div id="pushed-posts-container" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+</div>
+
+<script id="cardTemplate" type="text/template">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			{{message}}
+		</div>
+	</div>
+</script>
+
+<script>
+	
+	$(function() {
+		$.get( "/cards", function( cardDataArray ) {
+				
+				$.each(cardDataArray, function(i, cardData) {
+					var template = $('#cardTemplate').html();
+					var html = Mustache.to_html(template, cardData);
+					
+			  		$("#posts-container").prepend(html);
+		  });
+		});
+	});
+
+</script>
