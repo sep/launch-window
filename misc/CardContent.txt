@@ -1,0 +1,54 @@
+CRS = Crew Resupply Services
+
+===Links===
+CRS-6 Press Kit:  http://www.nasa.gov/sites/default/files/files/SpaceX_NASA_CRS-6_PressKit.pdf
+
+===Mission===
+SpaceX CRS-6 is the sixth of at least 12 missions to the International Space Station that SpaceX will fly for NASA under the CRS contract.  Learn more at http://en.wikipedia.org/wiki/SpaceX_CRS-6
+
+===Cargo===
+The Dragon spacecraft will be filled with more than 4,300 pounds of supplies and payloads, including critical materials to support about 40 of the more than 250 science and research investigations that will occur during Expeditions 43 and 44.  http://www.nasa.gov/mission_pages/station/expeditions/expedition43/
+http://www.nasa.gov/mission_pages/station/expeditions/expedition44/
+After five weeks at the space station, the spacecraft will return with over 3,000 pounds of cargo and packaging, including crew supplies, hardware and computer resources, science experiments, space station hardware and trash.   
+
+===Science===
+Science Mission Goal: Investigate new ways to possibly counteract the microgravity-induced cell damage, including to the most common cells in bones, seen during spaceflight.  Learn more in the CRS-6 Press Kit.
+Science Mission Goal: Gather new insight that could lead to treatments for osteoporosis and muscle wasting conditions. Learn more in the CRS-6 Press Kit.
+Science Mission Goal: Continue investigation of vision changes that more than half of American astronauts experience during and after long duration spaceflight. It is hypothesized that the headward fluid shift that occurs during space flight leads to increased pressure in the brain, which may push on the back of the eye, causing it to change shape. The study will measure how much fluid shifts from the lower body to the upper body, in or out of cells and blood vessels, and determine the impact these shifts have on fluid pressure in the head, changes in vision and eye structures.  Learn more in the CRS-6 Press Kit.
+Science Mission Goal: Test a new material that could one day be used as a synthetic muscle for robotics explorers of the future.  Learn more in the CRS-6 Press Kit.
+
+===Falcon 9 Rocket===
+21st-century rocket. As the first rocket completely developed in the 21st century, Falcon 9 was designed from the ground up for maximum reliability, achieving 100% of primary mission objectives on all flights to date.  Learn more at www.spacex.com/falcon9
+Falcon 9 topped with Dragon is 207.8 feet (63.3 meters) tall and 12 feet in diameter. Its nine first-stage Merlin engines generate 1.3 million pounds of thrust at sea level, rising to 1.5 million pounds of thrust as Falcon 9 climbs out of the Earth’s atmosphere. Learn more at www.spacex.com/falcon9
+Why “Falcon”? Falcon 9 is named for the Millennium Falcon in the “Star Wars” movies. The number 9 refers to the nine Merlin engines that power Falcon 9’s first stage; one Merlin vacuum engine powers the second stage. www.spacex.com/falcon9
+
+===Dragon Spacecraft===
+The Dragon Spacecraft carries cargo in a pressurized capsule and an unpressurized trunk. It can carry 6,000 kilograms (13,228 pounds), split between pressurized cargo inside the capsule and unpressurized cargo in the trunk, which also houses Dragon’s solar panels.  Learn more at www.spacex.com/dragon
+Designed for astronauts. Although this resupply mission carries only cargo, Dragon was designed from the outset to carry crew. Under a $2.6 billion contract with NASA, SpaceX is developing refinements for transporting crew, including seating for up to seven astronauts, the most advanced launch escape system ever developed, a propulsive landing system, environmental controls, and life-support systems. SpaceX expects to fly crew for NASA in 2017. Learn more at www.spacex.com/dragon
+Advanced heat shield. Dragon has the most effective heat shield in the world. Designed with NASA and fabricated by SpaceX, it is made of PICA-X, a high-performance variant on NASA’s original phenolic impregnated carbon ablator (PICA). PICA-X is designed to withstand heat rates from a lunar return mission, which far exceed the requirements for a low-Earth orbit mission. Learn more at www.spacex.com/dragon
+
+===SpaceX===
+Under the CRS contract, @SpaceX has restored an American capability to deliver and return significant amounts of cargo, including live plants and animals, to and from the orbiting laboratory. 
+@SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of enabling people to live on other planets.
+Currently under development is the Falcon Heavy, which will be the world’s most powerful rocket. All the while, @SpaceX continues to work toward one of its key goals—developing reusable rockets, a feat that will transform space exploration by radically reducing its cost.
+
+===Launch and Ascent===
+Add item for first stage landing attempt on barge.
+T-3h Fuelling begins
+T-10m Systems internal
+T-150s Final Go/Nogo
+T-0 liftoff
+T+70s Supersonic
+T+~75s Max Q
+T+158s MECO
+T+161 First stage sep
+T+169 Second stage ignition
+T+209 Nose fairing jettison
+T+577 Second stage cutoff
+T+580 capsule sep/orbit achieved
+
+===Approach to Station===
+
+===Capture and Berthing===
+
+===Return and Recovery===
