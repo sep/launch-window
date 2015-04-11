@@ -16,3 +16,8 @@ html{
 .no-overflow{
 	overflow: hidden;
 }
+
+.cardImage{
+	max-height: 64px;
+	max-width: 64px;
+}
