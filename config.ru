@@ -1,2 +1,2 @@
-require './helloWorld'
+require './launchWindow'
 run Sinatra::Application
