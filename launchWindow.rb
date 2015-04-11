@@ -1,7 +1,9 @@
 require 'rubygems'
 require 'sinatra'
 require 'json'
+require 'dotenv'
 
+Dotenv.load
 configure do
   enable :sessions
 end
@@ -21,7 +23,7 @@ before '/secure/*' do
 end
 
 get '/' do
-  erb :index, :locals => {:launchName => "SpaceX CRS-6 Launch"}
+  erb :index, :locals => {:launchName => "SpaceX CRS-6 Launch", :launchHastag => "#CRS-6"}
 end
 
 get '/cards' do 
