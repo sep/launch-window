@@ -6,10 +6,9 @@ GEM
     daemons (1.2.2)
     eventmachine (1.0.7)
     ffi (1.9.8)
+    ffi (1.9.8-x64-mingw32)
     foreman (0.78.0)
       thor (~> 0.19.1)
-    haml (4.0.5)
-      tilt
     hitimes (1.2.2)
     json (1.8.0)
     listen (2.10.0)
@@ -40,10 +39,10 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   foreman (~> 0.78.0)
-  haml
   json
   rake (~> 10.4.2)
   rerun (~> 0.10.0)

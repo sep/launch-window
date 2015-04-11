@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 ruby "2.1.5"
 
 gem 'sinatra', '>= 0'
-gem 'haml', '>= 0'
 gem 'json', '>=0'
 gem 'rake', '~> 10.4.2'
 gem 'thin', '~> 1.6.3'
