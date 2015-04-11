@@ -15,7 +15,7 @@ class Card
 	validates_presence_of :sequence_number
 	validates :sequence_number, numericality: { greater_than_or_equal_to: 0, only_integer: true }
 
-	enum :category, [:general, :links, :mission, :cargo, :science, :rocket, :space_craft, :organization, :mission_events], default: :general
+	enum :category, [:general, :link, :mission, :cargo, :science, :rocket, :spacecraft, :organization, :mission_event], default: :general
 
 	field :published_time, type: DateTime
 	validates_presence_of :published_time
