@@ -1,6 +1,6 @@
 
 <div class="row">
-	<div id="video-container" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	<div id="video-container" class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
 		<!-- <iframe src="http://livestream.com/accounts/50006/events/3937639/player?width=560&height=315&autoPlay=true&mute=false" width="560" height="315" frameborder="0" scrolling="no"> </iframe> -->
 		<iframe src="http://livestream.com/accounts/142499/events/3959775/player?width=560&height=315&autoPlay=true&mute=false" width="560" height="315" frameborder="0" scrolling="no"> </iframe>
 	</div>
@@ -25,13 +25,14 @@
 		setInterval(
 			function () 
 			{
-				$.get( "/cards?after=" + dateWeCareAbout , function( data ) {
+				$.get( "/cards?after=" + dateWeCareAbout , function( cardData ) {
 				
-					$.each(data, function(i, value) {
+					$.each(cardData, function(i, value) {
 						var template = $('#cardTemplate').html();
-					var html = Mustache.to_html(template, cardData);
-					
-			  		$("#posts-container").prepend(html);
+					var html = Mustache.to_html(template, value);
+					var obj = $(jQuery.parseHTML(html));
+					obj.hide().prependTo("#posts-container");
+					$("#posts-container").children().fadeIn("slow");
 			  		});
 				});
 			}, 3000);
