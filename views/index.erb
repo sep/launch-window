@@ -9,16 +9,24 @@
 	</div>
 </div>
 
+<script id="cardTemplate" type="text/template">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			{{message}}
+		</div>
+	</div>
+</script>
+
 <script>
 	
 	$(function() {
-		$.get( "/cards", function( data ) {
+		$.get( "/cards", function( cardDataArray ) {
 				
-				$.each(data, function(i, value) {
-					// TODO: bind the data using an html template here 
-					var html = "<div>" + value.message + "</div>";
+				$.each(cardDataArray, function(i, cardData) {
+					var template = $('#cardTemplate').html();
+					var html = Mustache.to_html(template, cardData);
 					
-			  		$("#posts-container").append(html);
+			  		$("#posts-container").prepend(html);
 		  });
 		});
 	});
