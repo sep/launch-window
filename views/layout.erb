@@ -43,6 +43,37 @@
     <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/vendor/mustache.min.js"></script>
 
+    <script id="cardTemplate" type="text/template">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            <b>{{name}}</b> - 4/11/2015
+            </div>
+            <div class="panel-body">
+                {{message}}
+            </div>
+        </div>
+    </script>
+
+    <script id="cardTemplateWithImage" type="text/template">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            <b>{{name}}</b> - 4/11/2015
+            </div>
+            <div class="panel-body">
+                <div class="media">
+                    <div class="pull-left">
+                        <a href="#">
+                          <img class="media-object cardImage" src="{{imageURI}}" alt="...">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        {{message}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
     <!-- Page Content -->
     <div class="container max-height no-overflow">
     	 <%= yield %>
