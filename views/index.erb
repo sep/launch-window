@@ -1,8 +1,8 @@
 
 <div class="row">
-	<div id="video-container" class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-		<iframe src="http://livestream.com/accounts/50006/events/3937639/player?width=560&height=315&autoPlay=true&mute=false" width="560" height="315" frameborder="0" scrolling="no"> </iframe>
-		<!-- <iframe src="http://livestream.com/accounts/142499/events/3959775/player?width=560&height=315&autoPlay=true&mute=false" width="560" height="315" frameborder="0" scrolling="no"> </iframe> -->
+	<div id="video-container" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+		<!-- <iframe src="http://livestream.com/accounts/50006/events/3937639/player?width=560&height=315&autoPlay=true&mute=false" width="560" height="315" frameborder="0" scrolling="no"> </iframe> -->
+		<iframe src="http://livestream.com/accounts/142499/events/3959775/player?width=560&height=315&autoPlay=true&mute=false" width="560" height="315" frameborder="0" scrolling="no"> </iframe>
 	</div>
 	<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 no-overflow">
 		<div id="posts-container">
@@ -10,6 +10,14 @@
 		</div>
 	</div>
 </div>
+
+<script id="cardTemplate" type="text/template">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			{{message}}
+		</div>
+	</div>
+</script>
 
 <script>
 	var dateWeCareAbout = new Date().toUTCString();
@@ -20,13 +28,13 @@
 				$.get( "/cards?after=" + dateWeCareAbout , function( data ) {
 				
 					$.each(data, function(i, value) {
-						// TODO: bind the data using an html template here 
-						var html = "<div>" + value.message + "</div>";
-						
-				  		$("#posts-container").prepend(html);
+						var template = $('#cardTemplate').html();
+					var html = Mustache.to_html(template, cardData);
+					
+			  		$("#posts-container").prepend(html);
 			  		});
 				});
-			}, 300);
+			}, 3000);
 	});
 
 </script>

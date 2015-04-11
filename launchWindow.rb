@@ -2,10 +2,14 @@ require 'rubygems'
 require 'sinatra'
 require 'json'
 require 'dotenv'
+require 'mongoid'
 
 Dotenv.load
 configure do
   enable :sessions
+
+  mongoid_config_path = File.expand_path(File.join('config', 'mongoid.yml'), File.dirname(__FILE__))
+  Mongoid.load!(mongoid_config_path)
 end
 
 helpers do
