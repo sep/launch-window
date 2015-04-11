@@ -14,7 +14,7 @@
 <script id="cardTemplate" type="text/template">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-		<b>{{name}}</b> - 4/11/2015
+		<h4>{{name}}<small><i> - 4/11/2015</i></small></h4>
 		</div>
 		<div class="panel-body">
 			{{message}}
@@ -24,20 +24,14 @@
 
 <script id="cardTemplateWithImage" type="text/template">
 	<div class="panel panel-default">
-		<div class="panel-heading">
-		<b>{{name}}</b> - 4/11/2015
+		<div class="panel-heading media">
+			<a href="{{imageURI}}" class="pull-left">
+			  <img class="media-object cardImage" src="{{imageURI}}" alt="...">
+			</a>
+			<h4>{{name}}<small><i> - 4/11/2015</i></small></h4>
 		</div>
 		<div class="panel-body">
-			<div class="media">
-				<div class="pull-left">
-					<a href="#">
-					  <img class="media-object cardImage" src="{{imageURI}}" alt="...">
-					</a>
-				</div>
-				<div class="media-body">
-					{{message}}
-				</div>
-			</div>
+			{{message}}
 		</div>
 	</div>
 </script>
