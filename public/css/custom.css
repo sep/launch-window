@@ -14,7 +14,23 @@ html{
 }
 
 .no-overflow{
-	overflow: hidden;
+	height: 315px;
+	
+    overflow: hidden;
+}
+
+#posts-container{
+   
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+  	-ms-overflow-style: none;
+    padding-right: 15px;
+   
+}
+
+#posts-container::-webkit-scrollbar {
+    width: 0px;
 }
 
 .cardImage{
