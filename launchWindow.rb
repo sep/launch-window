@@ -21,7 +21,7 @@ before '/secure/*' do
 end
 
 get '/' do
-  erb 'Can you handle a <a href="/secure/place">secret</a>?'
+  erb :index, :locals => {:launchName => "SpaceX CRS-6 Launch"}
 end
 
 get '/login/form' do 
