@@ -34,6 +34,18 @@ Currently under development is the Falcon Heavy, which will be the world’s mos
 
 ===Launch and Ascent===
 Add item for first stage landing attempt on barge.
+T-3h Fuelling begins
+T-10m Systems internal
+T-150s Final Go/Nogo
+T-0 liftoff
+T+70s Supersonic
+T+~75s Max Q
+T+158s MECO
+T+161 First stage sep
+T+169 Second stage ignition
+T+209 Nose fairing jettison
+T+577 Second stage cutoff
+T+580 capsule sep/orbit achieved
 
 ===Approach to Station===
 
