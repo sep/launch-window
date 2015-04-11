@@ -21,7 +21,11 @@ before '/secure/*' do
 end
 
 get '/' do
-  erb 'Can you handle a <a href="/secure/place">secret</a>?'
+  #Demo Video show it working
+  erb 'Can you handle a <a href="/secure/place">secret</a>? <br/>
+  <iframe src="http://livestream.com/accounts/50006/events/3937639/player?width=560&height=315&autoPlay=true&mute=false" width="560" height="315" frameborder="0" scrolling="no"> </iframe>'
+  #This is the link to the Live SpaceX Video feed
+  #erb '<iframe src="http://livestream.com/accounts/142499/events/3959775/player?width=560&height=315&autoPlay=true&mute=false" width="560" height="315" frameborder="0" scrolling="no"> </iframe>'
 end
 
 get '/login/form' do 
