@@ -1,12 +1,28 @@
 
 <div class="row">
-	<div id="video-container" class="col-xs-12 col-md-6">
+	<div id="video-container" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 		<iframe src="http://livestream.com/accounts/50006/events/3937639/player?width=560&height=315&autoPlay=true&mute=false" width="560" height="315" frameborder="0" scrolling="no"> </iframe>
 		<!-- <iframe src="http://livestream.com/accounts/142499/events/3959775/player?width=560&height=315&autoPlay=true&mute=false" width="560" height="315" frameborder="0" scrolling="no"> </iframe> -->
 	</div>
-	<div id="posts-container" class="col-xs-6 col-md-6">
-		List
+	<div id="posts-container" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		
 	</div>
 </div>
+
+<script>
+	
+	$(function() {
+		$.get( "/cards", function( data ) {
+				
+				$.each(data, function(i, value) {
+					// TODO: bind the data using an html template here 
+					var html = "<div>" + value.message + "</div>";
+					
+			  		$("#posts-container").append(html);
+		  });
+		});
+	});
+
+</script>
 
 

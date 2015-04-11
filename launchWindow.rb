@@ -1,7 +1,10 @@
 require 'rubygems'
 require 'sinatra'
+require 'json'
+require 'dotenv'
 require 'mongoid'
 
+Dotenv.load
 configure do
   enable :sessions
 
@@ -24,25 +27,17 @@ before '/secure/*' do
 end
 
 get '/' do
-  erb :index, :locals => {:launchName => "SpaceX CRS-6 Launch"}
+  erb :index, :locals => {:launchName => "SpaceX CRS-6 Launch", :launchHastag => "#CRS-6"}
 end
 
-get '/login/form' do 
-  erb :login_form
-end
-
-post '/login/attempt' do
-  session[:identity] = params['username']
-  where_user_came_from = session[:previous_url] || '/'
-  redirect to where_user_came_from 
-end
-
-get '/logout' do
-  session.delete(:identity)
-  erb "<div class='alert alert-message'>Logged out</div>"
-end
-
-
-get '/secure/place' do
-  erb "This is a secret place that only <%=session[:identity]%> has access to!"
+get '/cards' do 
+  # make call to mongo to get data
+  # convert data to json 
+  # arrayOfCards.to_json
+  
+  @messages = [{:message => 'this is the awesome message', :title => 'This is the title' }, {:message => 'this is another awesome message', :title => 'This is another title' }]
+   
+  content_type :json
+  @messages.to_json
+  
 end
