@@ -13,8 +13,31 @@
 
 <script id="cardTemplate" type="text/template">
 	<div class="panel panel-default">
+		<div class="panel-heading">
+		<b>{{name}}</b> - 4/11/2015
+		</div>
 		<div class="panel-body">
 			{{message}}
+		</div>
+	</div>
+</script>
+
+<script id="cardTemplateWithImage" type="text/template">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+		<b>{{name}}</b> - 4/11/2015
+		</div>
+		<div class="panel-body">
+			<div class="media">
+				<div class="pull-left">
+					<a href="#">
+					  <img class="media-object cardImage" src="{{imageURI}}" alt="...">
+					</a>
+				</div>
+				<div class="media-body">
+					{{message}}
+				</div>
+			</div>
 		</div>
 	</div>
 </script>
@@ -25,11 +48,16 @@
 		setInterval(
 			function () 
 			{
-				$.get( "/cards?after=" + dateWeCareAbout , function( cardData ) {
-				
-					$.each(cardData, function(i, value) {
-						var template = $('#cardTemplate').html();
-					var html = Mustache.to_html(template, value);
+				$.get( "/cards?after=" + dateWeCareAbout , function( cardDataArray ) {
+
+				$.each(cardDataArray, function(i, cardData) {
+					var template;
+					if(!!cardData['imageURI']){
+						template = $('#cardTemplateWithImage').html();
+					} else {
+						template = $('#cardTemplate').html();
+					}
+					var html = Mustache.to_html(template, cardData);
 					var obj = $(jQuery.parseHTML(html));
 					obj.hide().prependTo("#posts-container");
 					$("#posts-container").children().fadeIn("slow");

@@ -32,3 +32,8 @@ html{
 #posts-container::-webkit-scrollbar {
     width: 0px;
 }
+
+.cardImage{
+	max-height: 64px;
+	max-width: 64px;
+}
