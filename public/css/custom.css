@@ -37,3 +37,45 @@ html{
 	max-height: 64px;
 	max-width: 64px;
 }
+
+iframe { 
+		display: block;
+		min-width: 560px; 
+		min-height:315px;
+		max-width: 560px; 
+		max-height:315px;
+		margin: 0 auto 25px; 
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) 
+{ 
+	iframe { 
+		display: block;
+		width: 400px; 
+		height:225px;
+		margin: 0 auto 25px; 
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) 
+{
+	iframe { 
+		min-width: 560px; 
+		min-height:315px;	
+		max-width: 650px; 
+		max-height: 366px;
+	}
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+	iframe { 
+	min-width: 560px; 
+	min-height:315px;	
+	max-width: 650px; 
+	max-height: 366px;
+	}
+}
