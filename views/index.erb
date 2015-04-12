@@ -4,7 +4,7 @@
 		<!-- <iframe src="http://livestream.com/accounts/50006/event/3937639/player?width=560&height=315&autoPlay=true&mute=false" width="560" height="315" frameborder="0" scrolling="no"> </iframe> -->
 		<iframe src="http://livestream.com/accounts/142499/events/3959775/player?width=560&height=315&autoPlay=true&mute=false" frameborder="0" scrolling="no"> </iframe>
 	</div>
-	<div class="col-xs-12 col-sm-12 col-md-5 col-lg-6">
+	<div class="col-xs-12 col-sm-12 col-md-5 col-lg-6 no-overflow">
 		<div id="posts-container">
 			
 		</div>
@@ -14,31 +14,33 @@
 <script>
 	var dateWeCareAbout = new Date().toUTCString();
 	var $el = $('#posts-container');
+	getCards();
+	
+	function getCards() 
+	{
+		dateWeCareAbout = new Date().toUTCString();
+		$.get( "/cards?after=" + dateWeCareAbout , function( cardDataArray ) {
+		
+		$.each(cardDataArray, function(i, cardData) {
+			var template;
+			if(!!cardData['imageURI']){
+				template = $('#cardTemplateWithImage').html();
+			} else {
+				template = $('#cardTemplate').html();
+			}
+			var html = Mustache.to_html(template, cardData);
+			var obj = $(jQuery.parseHTML(html));
+			obj.hide().prependTo("#posts-container");
+			$("#posts-container").children().fadeIn("slow");
+	  		});
+	  		while($(".panel").length > 200){
+	  			$(".panel:last").remove();
+	  		}
+		});
+	};
  
 	$(function() {
-		setInterval(
-			function () 
-			{
-				dateWeCareAbout = new Date().toUTCString();
-				$.get( "/cards?after=" + dateWeCareAbout , function( cardDataArray ) {
-				
-				$.each(cardDataArray, function(i, cardData) {
-					var template;
-					if(!!cardData['imageURI']){
-						template = $('#cardTemplateWithImage').html();
-					} else {
-						template = $('#cardTemplate').html();
-					}
-					var html = Mustache.to_html(template, cardData);
-					var obj = $(jQuery.parseHTML(html));
-					obj.hide().prependTo("#posts-container");
-					$("#posts-container").children().fadeIn("slow");
-			  		});
-			  		while($(".panel").length > 200){
-			  			$(".panel:last").remove();
-			  		}
-				});
-			}, 10000);
+		setInterval(function() {getCards()}, 10000);
 	});
 
 </script>
