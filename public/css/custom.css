@@ -51,10 +51,8 @@ iframe {
 @media (min-width: 768px) 
 { 
 	iframe { 
-		display: block;
-		width: 400px; 
-		height:225px;
-		margin: 0 auto 25px; 
+		width: 560px; 
+		height:315px;
 	}
 }
 

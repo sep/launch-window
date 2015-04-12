@@ -4,6 +4,8 @@ require 'json'
 require 'dotenv'
 require 'mongoid'
 require_relative 'twitter'
+#require 'mongoid'
+#require_relative 'twitter'
 
 Dotenv.load
 configure do
@@ -44,12 +46,12 @@ get '/cards' do
   # arrayOfCards.to_json
   
   @messages = [{:id => 1,
-        :message => 'this is the awesome message', 
+        :message => 'this is the awesome message ' + after , 
 				:title => 'This is the title', 
 				:name => 'Bob',
 				:imageURI => 'http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Wild_Turkeys.jpg/250px-Wild_Turkeys.jpg'},
 				{:id => 2,
-         :message => 'this is another awesome message', 
+         :message => 'this is another awesome message ' + after, 
 				 :title => 'This is another title', 
 				 :name => 'Dave'}]
    
