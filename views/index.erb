@@ -13,12 +13,15 @@
 
 <script>
 	var dateWeCareAbout = new Date().toUTCString();
+	var $el = $('#posts-container');
+ 
 	$(function() {
 		setInterval(
 			function () 
 			{
+				dateWeCareAbout = new Date().toUTCString();
 				$.get( "/cards?after=" + dateWeCareAbout , function( cardDataArray ) {
-
+				
 				$.each(cardDataArray, function(i, cardData) {
 					var template;
 					if(!!cardData['imageURI']){
