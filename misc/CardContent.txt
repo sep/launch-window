@@ -12,7 +12,7 @@ Continue investigation of vision changes that more than half of American astrona
 Test a new material that could one day be used as a synthetic muscle for robotics explorers of the future.  Learn more in the [CRS-6 Press Kit](http://www.nasa.gov/sites/default/files/files/SpaceX_NASA_CRS-6_PressKit.pdf)
 ===rocket===
 As the first rocket completely developed in the 21st century, [Falcon 9](www.spacex.com/falcon9) was designed from the ground up for maximum reliability, achieving 100% of primary mission objectives on all flights to date.
-Falcon 9 topped with Dragon is 207.8 feet (63.3 meters) tall and 12 feet in diameter. Its nine first-stage Merlin engines generate 1.3 million pounds of thrust at sea level, rising to 1.5 million pounds of thrust as Falcon 9 climbs out of the Earth’s atmosphere. Learn more at 
+[Falcon 9](www.spacex.com/falcon9) topped with the [Dragon Spacecraft](http://www.spacex.com/dragon) is 207.8 feet (63.3 meters) tall and 12 feet in diameter. Its nine first-stage Merlin engines generate 1.3 million pounds of thrust at sea level, rising to 1.5 million pounds of thrust as [Falcon 9](www.spacex.com/falcon9) climbs out of the Earth’s atmosphere.
 [Falcon 9](www.spacex.com/falcon9) is named for the Millennium Falcon in the “Star Wars” movies. The number 9 refers to the nine Merlin engines that power Falcon 9’s first stage; one Merlin vacuum engine powers the second stage.
 ===spacecraft===
 The [Dragon Spacecraft](http://www.spacex.com/dragon) carries cargo in a pressurized capsule and an unpressurized trunk. It can carry 6,000 kilograms (13,228 pounds), split between pressurized cargo inside the capsule and unpressurized cargo in the trunk, which also houses Dragon’s solar panels.
