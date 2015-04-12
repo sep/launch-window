@@ -38,17 +38,20 @@
 			}
 			var html = Mustache.to_html(template, cardData);
 			var obj = $(jQuery.parseHTML(html));
-			obj.hide().prependTo("#posts-container");
-			$("#posts-container").children().fadeIn("slow");
+			if($('#' + cardData['id']).length == 0)
+			{
+				obj.hide().prependTo("#posts-container");
+				$("#posts-container").children().fadeIn("slow");
 
-			lastQueriedTime = cardData.publishedTime;
-	  		});
-	  		while($(".panel").length > 200){
-	  			$(".panel:last").remove();
-	  		}
+				lastQueriedTime = cardData.publishedTime;
+			}
+		});
 
-	  		
-	 });
+  		while($(".panel").length > 200)
+  		{
+  			$(".panel:last").remove();
+  		} 		
+ });
 	}
  
 	$(function() {
