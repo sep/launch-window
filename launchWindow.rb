@@ -53,7 +53,7 @@ get '/cards' do
   end 
 
   messages = []
-  Card.where(:published_time.gte => afterDateTime).each do |card|
+  Card.where(:published_time.gt => afterDateTime).each do |card|
     messages.append({:id => card.id, :message => card.content, :name => "Bob", :imageURI => card.image, :sequenceNumber => card.sequence_number, :publishedTime => card.published_time.to_s})
   end
   
