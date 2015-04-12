@@ -16,11 +16,6 @@ configure do
   Mongoid.load!(mongoid_config_path)
   
   twitter_init
-
-  #Seed Content for testing
-  nowUTCDate = Time.now.to_i
-  newCard = Card.new(content: "This is my card content", image: "images/spaceappslogo.png", sequence_number: 1, published_time: nil)
-  newCard.save!
 end
 
 helpers do
@@ -75,17 +70,6 @@ get '/cards' do
     messages.append({:id => card.id.to_s, :message => card.content, :name => "Bob", :imageURI => card.image, :sequenceNumber => card.sequence_number, :publishedTime => card.published_time.to_s})
   end
   
-  #Demo Content
-  #messages.append({:id => 1,
-  #      :message => 'this is the awesome message', 
-  #      :title => 'This is the title', 
-  #      :name => 'Bob',
-  #      :imageURI => 'http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Wild_Turkeys.jpg/250px-Wild_Turkeys.jpg'});
-  #messages.append({:id => 2,
-  #       :message => 'this is another awesome message', 
-	#			 :title => 'This is another title', 
-	#			 :name => 'Dave'});
-   
   content_type :json
   messages.to_json
   
