@@ -47,6 +47,7 @@
     <script src="/vendor/jquery-1.9.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/vendor/moment.min.js"></script>
 	<script src="/vendor/mustache.min.js"></script>
 	
     <script id="cardTemplate" type="text/template">
@@ -83,7 +84,7 @@
     <script id="twitterCardTemplate" type="text/template">
         <div class="panel panel-default">
             <div class="panel-heading">
-            <b>{{user_name}} (@{{user_handle}})</b> - {{created}}
+            <b>{{user_name}} (@{{user_handle}})</b> - <span class="timestamp" data-time='{{created}}'></span>
             </div>
             <div class="panel-body">
                 <div class="media">

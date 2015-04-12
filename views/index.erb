@@ -52,6 +52,16 @@
 <script type="text/javascript">
     var latestTweet = 0;
     
+    function updateTimestamps()
+    {
+        $("span.timestamp").each(function() {
+            var timestamp = moment($(this).data('time'));
+            $(this).text(timestamp.fromNow());
+            $(this).attr('title', timestamp.format("LLLL"));
+            $(this).attr('alt', timestamp.format("LLLL"));
+        });
+    }
+    
     function getTweets()
     {
         $.get("/tweets?after=" + latestTweet, function(tweets) {
@@ -68,6 +78,7 @@
             while($(".panel").length > 200) {
                 $(".panel:last").remove();
             }
+            updateTimestamps();
         });
     }
     
