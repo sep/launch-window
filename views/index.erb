@@ -13,8 +13,17 @@
 
 <script>
 	var lastQueriedTime = null;
-	var $el = $('#posts-container');
 	getCards();
+	
+	setPostsHeight();
+	
+	$(window).resize(function(){setPostsHeight()});
+	
+	function setPostsHeight(){
+		var postsStart = $("#posts-container").offset().top;
+	
+		$("#posts-container").css("height", $(window).height() - postsStart);
+	}
 	
 	function getCards() 
 	{
