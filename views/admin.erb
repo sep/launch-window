@@ -10,27 +10,57 @@
 	</div>
 </div>
 
-<script>	
+<script> //Get cards for "Unpublished" List
 	$(function() {
 		$.get( "/cards", function( cardDataArray ) {
 				
 				$.each(cardDataArray, function(i, cardData) {
-					var template;
-					if(!!cardData['imageURI']){
-						template = $('#cardTemplateWithImage').html();
-					} else {
-						template = $('#cardTemplate').html();
-					}
-					var html = Mustache.to_html(template, cardData);
-					
-			  		$("#unpushed-posts-container").prepend(html);
+					if(cardData.PublishedTime == null) //Only get unpublished posts.
+					{
+						var template;
+						if(!!cardData['imageURI']){
+							template = $('#cardTemplateWithImage').html();
+						} else {
+							template = $('#cardTemplate').html();
+						}
+						var html = Mustache.to_html(template, cardData);
+						
+				  		$("#unpushed-posts-container").prepend(html);
+			  		}
 		  });
 		});
 	});
-
 </script>
 
-<script>
+<script> //Get cards for "Published" List	
+	var dateWeCareAbout = new Date().toUTCString();
+	$(function() {
+		setInterval(
+			function () 
+			{
+				$.get( "/cards?after=" + dateWeCareAbout , function( cardDataArray ) {
+
+				$.each(cardDataArray, function(i, cardData) {
+					if(cardData.PublishedTime != null) //Only get published posts.
+					{
+						var template;
+						if(!!cardData['imageURI']){
+							template = $('#cardTemplateWithImage').html();
+						} else {
+							template = $('#cardTemplate').html();
+						}
+						var html = Mustache.to_html(template, cardData);
+						var obj = $(jQuery.parseHTML(html));
+						obj.hide().prependTo("#pushed-posts-container");
+						$("#pushed-posts-container").children().fadeIn("slow");
+					}					
+			  		});
+				});
+			}, 3000);
+	});
+</script>
+
+<script> // Click handler for publishing posts
     $("#unpushed-posts-container").on("click", ".panel", function() {
       
       //TODO: Get rid of this line.  This is just for show, and eventual implementation is listed in Todo items below.
@@ -42,4 +72,6 @@
       $(this).remove();
     }); 
 </script>
+
+
 

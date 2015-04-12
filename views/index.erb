@@ -22,6 +22,8 @@
 		$.get( "/cards?after=" + dateWeCareAbout , function( cardDataArray ) {
 		
 		$.each(cardDataArray, function(i, cardData) {
+		//if(cardData.PublishedTime != null) //Only get published posts.
+		//{
 			var template;
 			if(!!cardData['imageURI']){
 				template = $('#cardTemplateWithImage').html();
@@ -36,12 +38,14 @@
 	  		while($(".panel").length > 200){
 	  			$(".panel:last").remove();
 	  		}
+	  		//}
 		});
 	};
  
 	$(function() {
+		getCards();
 		setInterval(function() {getCards()}, 10000);
-	});
+	)};
 
 </script>
 
