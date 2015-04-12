@@ -23,15 +23,14 @@ Under the CRS contract, [@SpaceX](http://twitter.com/SpaceX) has restored an Ame
 [@SpaceX](http://twitter.com/SpaceX) designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by [Elon Musk](http://twitter.com/ElonMusk) to revolutionize space transportation, with the ultimate goal of enabling people to live on other planets.
 Currently under development is the [Falcon Heavy](http://spacex.com/falcon9), which will be the world’s most powerful rocket. All the while, [@SpaceX](http://twitter.com/SpaceX) continues to work toward one of its key goals—developing reusable rockets, a feat that will transform space exploration by radically reducing its cost.
 ===mission_event===
-T-3h Fuelling begins
-T-10m Systems internal
-T-150s Final Go/Nogo
-T-0 liftoff
-T+70s Supersonic
-T+~75s Max Q
-T+158s MECO
-T+161 First stage sep
-T+169 Second stage ignition
+T-3h Three hours before launch, fuelling begins of the Falcon 9 rocket that will carry the Dragon capsule to orbit. The Falcon 9 first stage is capable of carrying up to 385,000kg of RP1 fuel. The second stage holds up to 90,000kg of the same RP1 (refined kerosene) fuel.
+T-10m Ten minutes before launch, control of the spacecraft's systems is tranferred to the onboard computers.
+T-150s Two and a half minutes before launch, the launch commander gives the final GO/NO-GO decision based on many factors of weather and spacecraft status.
+T-0 Liftoff!
+T+70s Approximately seventy seconds after liftoff, the Falcon 9 rocket has reached supersonic speed. Just after passing Mach 1, the rocket experiences "Max Q", the point of maximum stress on the vehicle due to the combination of thrust and air resistance.
+T+158s Just after two and a half minutes into the flight, the Falcon 9's first stage has exhausted almost all of its fuel and the main engines are turned off...an event known as "Main Engine Cut-Off" or MECO.
+T+161 After the Falcon 9's first stage engines turn off, the entire first stage of the rocket becomes dead weight holding back the rest of the craft. So, this weight is removed by separating the first stage from the second stage by firing explosive bolts holding the two together. This is known as "first stage separation". As part of this mission, the Falcon 9 first stage will attempt to fly to and land softly on a barge positioned in the Atlantic Ocean. If successful, the first stage will be examined for possible reuse in a future mission.
+T+169 With the first stage of the rocket out of the way, the second stage's single Merlin engine fires to further propel the craft toward the desired orbit.
 T+209 Nose fairing jettison
 First stage landing attempt on barge.
 T+577 Second stage cutoff
