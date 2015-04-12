@@ -45,7 +45,7 @@ iframe {
 }
 
 .navbar-brand {
-		font-size: 1.125em !important;
+		font-size: 12px !important;
 	}
 	
 /* Small devices (tablets, 768px and up) */
@@ -58,6 +58,10 @@ iframe {
 	
 	#posts-container{
     	padding-right: 15px;
+	}
+	
+	.navbar-brand {
+		font-size: 18px !important;
 	}
 }
 
