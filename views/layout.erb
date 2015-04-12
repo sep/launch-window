@@ -74,6 +74,26 @@
         </div>
     </script>
 
+    <script id="twitterCardTemplate" type="text/template">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            <b>{{user_name}} (@{{user_handle}})</b> - {{created}}
+            </div>
+            <div class="panel-body">
+                <div class="media">
+                    <div class="pull-left">
+                        <a href="#">
+                          <img class="media-object cardImage" src="{{user_image}}" alt="...">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        {{text}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
     <!-- Page Content -->
     <div class="container-fluid">
     	 <%= yield %>

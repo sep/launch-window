@@ -49,4 +49,30 @@
 
 </script>
 
-
+<script type="text/javascript">
+    var latestTweet = 0;
+    
+    function getTweets()
+    {
+        $.get("/tweets?after=" + latestTweet, function(tweets) {
+            $.each(tweets, function(i, tweet) {
+                var curTimestamp = tweet.timestamp;
+                if (curTimestamp > latestTweet) latestTweet = curTimestamp;
+                
+                var template = $('#twitterCardTemplate').html();
+                var html = Mustache.to_html(template, tweet);
+                var obj = $(jQuery.parseHTML(html));
+                obj.hide().prependTo("#posts-container");
+                $("#posts-container").children().fadeIn("slow");
+            });
+            while($(".panel").length > 200) {
+                $(".panel:last").remove();
+            }
+        });
+    }
+    
+    $(function() {
+        getTweets();
+        setInterval(function() {getTweets()}, 3000);
+    });
+</script>
