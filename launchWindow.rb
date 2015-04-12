@@ -3,6 +3,8 @@ require 'sinatra'
 require 'json'
 require 'dotenv'
 require 'mongoid'
+require 'time'
+require_relative 'models/card'
 require_relative 'twitter'
 #require 'mongoid'
 #require_relative 'twitter'
@@ -15,6 +17,11 @@ configure do
   Mongoid.load!(mongoid_config_path)
   
   twitter_init
+
+  #Seed Content for testing
+  #nowUTCDate = Time.now.to_i
+  #newCard = Card.new(content: "This is my card content", image: "images/spaceappslogo.png", sequence_number: 1, published_time: nowUTCDate)
+  #newCard.save!
 end
 
 helpers do
@@ -41,21 +48,23 @@ end
 
 get '/cards' do 
   after = params[:after]
-  # make call to mongo to get data
-  # convert data to json 
-  # arrayOfCards.to_json
+  messages = []
+  Card.where(card.published_time > after).each do |card|
+    messages.append({:id => card.id, :message => card.content, :name => "Bob", :imageURI => card.image, :sequenceNumber => card.sequence_number, :publishedTime => card.published_time});
+  end
   
-  @messages = [{:id => 1,
-        :message => 'this is the awesome message ' + after , 
-				:title => 'This is the title', 
-				:name => 'Bob',
-				:imageURI => 'http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Wild_Turkeys.jpg/250px-Wild_Turkeys.jpg'},
-				{:id => 2,
-         :message => 'this is another awesome message ' + after, 
-				 :title => 'This is another title', 
-				 :name => 'Dave'}]
+  #Demo Content
+  #messages.append({:id => 1,
+  #      :message => 'this is the awesome message', 
+  #      :title => 'This is the title', 
+  #      :name => 'Bob',
+  #      :imageURI => 'http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Wild_Turkeys.jpg/250px-Wild_Turkeys.jpg'});
+  #messages.append({:id => 2,
+  #       :message => 'this is another awesome message', 
+	#			 :title => 'This is another title', 
+	#			 :name => 'Dave'});
    
   content_type :json
-  @messages.to_json
+  messages.to_json
   
 end
