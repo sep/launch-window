@@ -10,66 +10,71 @@
 	</div>
 </div>
 
-<script> //Get cards for "Unpublished" List
-	$(function() {
-		$.get( "/cards", function( cardDataArray ) {
-				
-				$.each(cardDataArray, function(i, cardData) {
-					if(cardData.PublishedTime == null) //Only get unpublished posts.
-					{
-						var template;
-						if(!!cardData['imageURI']){
-							template = $('#cardTemplateWithImage').html();
-						} else {
-							template = $('#cardTemplate').html();
-						}
-						var html = Mustache.to_html(template, cardData);
-						
-				  		$("#unpushed-posts-container").prepend(html);
-			  		}
-		  });
-		});
-	});
+<script>  //Get cards for Unpublished list	
+	getUnpublishedCards();
+	function getUnpublishedCards() 
+	{
+		$.get( "/cards/unpublished" , function( cardDataArray ) {
+		
+		$.each(cardDataArray, function(i, cardData) {
+			var template;
+			if(!!cardData['imageURI']){
+				template = $('#cardTemplateWithImage').html();
+			} else {
+				template = $('#cardTemplate').html();
+			}
+			var html = Mustache.to_html(template, cardData);
+			var obj = $(jQuery.parseHTML(html));
+			obj.hide().prependTo("#unpushed-posts-container");
+			$("#unpushed-posts-container").children().fadeIn("slow");
+	  		});		
+	 });
+	}
 </script>
 
-<script> //Get cards for "Published" List	
-	var dateWeCareAbout = new Date().toUTCString();
-	$(function() {
-		setInterval(
-			function () 
-			{
-				$.get( "/cards?after=" + dateWeCareAbout , function( cardDataArray ) {
+<script>  //Get cards for Published list
+	var lastQueriedTime = null;	
+	var $el = $('#posts-container');
+	getCards();
+	
+	function getCards() 
+	{
+		$.get( "/cards?after=" + lastQueriedTime , function( cardDataArray ) {
+		
+		$.each(cardDataArray, function(i, cardData) {
+			var template;
+			if(!!cardData['imageURI']){
+				template = $('#cardTemplateWithImage').html();
+			} else {
+				template = $('#cardTemplate').html();
+			}
+			var html = Mustache.to_html(template, cardData);
+			var obj = $(jQuery.parseHTML(html));
+			obj.hide().prependTo("#pushed-posts-container");
+			$("#pushed-posts-container").children().fadeIn("slow");
 
-				$.each(cardDataArray, function(i, cardData) {
-					if(cardData.PublishedTime != null) //Only get published posts.
-					{
-						var template;
-						if(!!cardData['imageURI']){
-							template = $('#cardTemplateWithImage').html();
-						} else {
-							template = $('#cardTemplate').html();
-						}
-						var html = Mustache.to_html(template, cardData);
-						var obj = $(jQuery.parseHTML(html));
-						obj.hide().prependTo("#pushed-posts-container");
-						$("#pushed-posts-container").children().fadeIn("slow");
-					}					
-			  		});
-				});
-			}, 3000);
-	});
+			lastQueriedTime = cardData.publishedTime;
+	  		});	  		
+	 });
+	}
 </script>
+
+
 
 <script> // Click handler for publishing posts
     $("#unpushed-posts-container").on("click", ".panel", function() {
       
       //TODO: Get rid of this line.  This is just for show, and eventual implementation is listed in Todo items below.
-      $("#pushed-posts-container").prepend($(this).clone());
+      //$("#pushed-posts-container").prepend($(this).clone());
       
       //Todo:
+      //clickedCard = Card.find($(this).attr("id"));
+      $.post("publish/" + $(this).attr("id"))
+      //clickedCard.published_time = $.now().getUTCDate();
       //Call post to update associated database entry to set PublishedTime to now.
       //Force pushed-posts-container to update.  Need script to pull published cards.
       $(this).remove();
+      document.location.reload();
     }); 
 </script>
 

@@ -18,5 +18,4 @@ class Card
 	enum :category, [:general, :link, :mission, :cargo, :science, :rocket, :spacecraft, :organization, :mission_event], default: :general
 
 	field :published_time, type: DateTime
-	validates_presence_of :published_time
 end
