@@ -14,7 +14,7 @@ html{
 }
 
 .no-overflow{
-	height: 315px;
+	height: 100%;
 	
     overflow: hidden;
 }
