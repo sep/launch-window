@@ -10,39 +10,7 @@
 	</div>
 </div>
 
-<script id="cardTemplate" type="text/template">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-		<b>{{name}}</b> - 4/11/2015
-		</div>
-		<div class="panel-body">
-			{{message}}
-		</div>
-	</div>
-</script>
-
-<script id="cardTemplateWithImage" type="text/template">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-		<b>{{name}}</b> - 4/11/2015
-		</div>
-		<div class="panel-body">
-			<div class="media">
-				<div class="pull-left">
-					<a href="#">
-					  <img class="media-object cardImage" src="{{imageURI}}" alt="...">
-					</a>
-				</div>
-				<div class="media-body">
-					{{message}}
-				</div>
-			</div>
-		</div>
-	</div>
-</script>
-
-<script>
-	
+<script>	
 	$(function() {
 		$.get( "/cards", function( cardDataArray ) {
 				
@@ -61,3 +29,11 @@
 	});
 
 </script>
+
+<script>
+    $("#unpushed-posts-container").on("click", ".panel", function() {
+      $("#pushed-posts-container").prepend($(this).clone());
+      $(this).remove();
+    }); 
+</script>
+
