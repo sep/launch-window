@@ -12,18 +12,15 @@
 </div>
 
 <script>
-	var dateWeCareAbout = new Date().toUTCString();
+	var lastQueriedTime = null;
 	var $el = $('#posts-container');
 	getCards();
 	
 	function getCards() 
 	{
-		dateWeCareAbout = new Date().toUTCString();
-		$.get( "/cards?after=" + dateWeCareAbout , function( cardDataArray ) {
+		$.get( "/cards?after=" + lastQueriedTime , function( cardDataArray ) {
 		
 		$.each(cardDataArray, function(i, cardData) {
-		//if(cardData.PublishedTime != null) //Only get published posts.
-		//{
 			var template;
 			if(!!cardData['imageURI']){
 				template = $('#cardTemplateWithImage').html();
@@ -34,11 +31,14 @@
 			var obj = $(jQuery.parseHTML(html));
 			obj.hide().prependTo("#posts-container");
 			$("#posts-container").children().fadeIn("slow");
+
+			lastQueriedTime = cardData.publishedTime;
 	  		});
 	  		while($(".panel").length > 200){
 	  			$(".panel:last").remove();
 	  		}
-	  		//}
+
+	  		
 	 });
 	}
  

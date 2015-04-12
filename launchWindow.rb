@@ -6,8 +6,7 @@ require 'mongoid'
 require 'time'
 require_relative 'models/card'
 require_relative 'twitter'
-#require 'mongoid'
-#require_relative 'twitter'
+require_relative 'twitter'
 
 Dotenv.load
 configure do
@@ -48,9 +47,14 @@ end
 
 get '/cards' do 
   after = params[:after]
+  afterDateTime = DateTime.new(2000,1,1)
+  if(!after.empty? && after != "null")
+    afterDateTime =  DateTime.iso8601(after)
+  end 
+
   messages = []
-  Card.where(card.published_time > after).each do |card|
-    messages.append({:id => card.id, :message => card.content, :name => "Bob", :imageURI => card.image, :sequenceNumber => card.sequence_number, :publishedTime => card.published_time});
+  Card.where(:published_time.gte => afterDateTime).each do |card|
+    messages.append({:id => card.id, :message => card.content, :name => "Bob", :imageURI => card.image, :sequenceNumber => card.sequence_number, :publishedTime => card.published_time.to_s})
   end
   
   #Demo Content
