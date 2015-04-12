@@ -24,15 +24,21 @@
 	<body class="no-overflow">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    
+    <nav id="nav-bar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-            	<ul class="nav navbar-nav">
-            		<li><a class="navbar-brand" href="#"><%=launchName%></a></li>
-            		<li><span class="navbar-brand navbar-right"><%=launchHastag%></span></li>
-            	</ul>                
-            </div>
+            <header>
+            	  <div class = "pull-right">
+	            	<div class="navbar-brand navbar-right"><%=launchName%> <%=launchHastag%></div>
+	            </div>
+	            <div class="navbar-header">
+	            
+	            	<div class="navbar-brand">Launch Window</div>
+	                
+	            </div>
+	          
+            </header>
         </div>
         <!-- /.container -->
     </nav>
@@ -41,12 +47,13 @@
     <script src="/vendor/jquery-1.9.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/vendor/moment.min.js"></script>
 	<script src="/vendor/mustache.min.js"></script>
 	
     <script id="cardTemplate" type="text/template">
-        <div id="{{id}}" class="panel panel-default">
+        <div id="{{id}}" class="panel panel-primary">
             <div class="panel-heading">
-            <b>{{name}}</b> - 4/11/2015
+            <span class="timestamp" data-time='{{publishedTime}}'></span>
             </div>
             <div class="panel-body">
                 {{message}}
@@ -55,9 +62,9 @@
     </script>
 
     <script id="cardTemplateWithImage" type="text/template">
-        <div id="{{id}}" class="panel panel-default">
+        <div id="{{id}}" class="panel panel-primary">
             <div class="panel-heading">
-            <b>{{name}}</b> - 4/11/2015
+            <span class="timestamp" data-time='{{publishedTime}}'></span>
             </div>
             <div class="panel-body">
                 <div class="media">
@@ -77,7 +84,7 @@
     <script id="twitterCardTemplate" type="text/template">
         <div class="panel panel-default">
             <div class="panel-heading">
-            <b>{{user_name}} (@{{user_handle}})</b> - {{created}}
+            <b>{{user_name}} (@{{user_handle}})</b> - <span class="timestamp" data-time='{{created}}'></span>
             </div>
             <div class="panel-body">
                 <div class="media">
@@ -94,13 +101,14 @@
         </div>
     </script>
 
+	<article>
     <!-- Page Content -->
-    <div class="container-fluid">
-    	 <%= yield %>
-
-    </div>
-    <!-- /.container -->
-
+	    <div class="container-fluid">
+	    	 <%= yield %>
+	
+	    </div>
+	    <!-- /.container -->
+	</article>
    
 </body>
 </html>

@@ -38,11 +38,11 @@ before '/secure/*' do
 end
 
 get '/' do
-  erb :index, :locals => {:launchName => "SpaceX CRS-6 Launch", :launchHastag => "#CRS-6"}
+  erb :index, :locals => {:launchName => "SpaceX CRS-6 Launch", :launchHastag => "#CRS6"}
 end
 
 get '/admin' do
-  erb :admin, :locals => {:launchName => "ADMIN PANEL - - - SpaceX CRS-6 Launch", :launchHastag => "#CRS-6"}
+  erb :admin, :locals => {:launchName => "ADMIN PANEL - - - SpaceX CRS-6 Launch", :launchHastag => "#CRS6"}
 end
 
 get '/cards/unpublished' do

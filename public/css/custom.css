@@ -14,9 +14,8 @@ html{
 }
 
 .no-overflow{
-	height: 600px;
-	
     overflow: hidden;
+    height: 1600px;
 }
 
 #posts-container{
@@ -24,17 +23,21 @@ html{
     height: 100%;
     width: 100%;
     overflow: auto;
-    overflow: -moz-scrollbars-none;
-  	-ms-overflow-style: none;
+/*
+   overflow: -moz-scrollbars-none;
+  	-ms-overflow-style: none;*/
+
 }
 
+/*
 #posts-container::-webkit-scrollbar {
     width: 0px;
 }
+*/
 
 .cardImage{
-	max-height: 64px;
-	max-width: 64px;
+	max-height: 96px;
+	max-width: 96px;
 }
 
 iframe { 
@@ -43,9 +46,13 @@ iframe {
 		min-height:150px;
 		max-width: 560px; 
 		max-height:315px;
-		margin: 0 auto 25px; 
+		margin: 0 auto 25px;
 }
 
+.navbar-brand {
+		font-size: 12px !important;
+	}
+	
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) 
 { 
@@ -56,6 +63,10 @@ iframe {
 	
 	#posts-container{
     	padding-right: 15px;
+	}
+	
+	.navbar-brand {
+		font-size: 18px !important;
 	}
 }
 
@@ -72,7 +83,6 @@ iframe {
 	#posts-container{
     	padding-right: 15px;
 	}
-
 }
 
 /* Large devices (large desktops, 1200px and up) */
