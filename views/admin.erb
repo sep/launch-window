@@ -32,7 +32,13 @@
 
 <script>
     $("#unpushed-posts-container").on("click", ".panel", function() {
+      
+      //TODO: Get rid of this line.  This is just for show, and eventual implementation is listed in Todo items below.
       $("#pushed-posts-container").prepend($(this).clone());
+      
+      //Todo:
+      //Call post to update associated database entry to set PublishedTime to now.
+      //Force pushed-posts-container to update.  Need script to pull published cards.
       $(this).remove();
     }); 
 </script>
