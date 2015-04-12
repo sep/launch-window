@@ -3,6 +3,7 @@ require 'sinatra'
 require 'json'
 require 'dotenv'
 require 'mongoid'
+require_relative 'twitter'
 
 Dotenv.load
 configure do
@@ -10,6 +11,8 @@ configure do
 
   mongoid_config_path = File.expand_path(File.join('config', 'mongoid.yml'), File.dirname(__FILE__))
   Mongoid.load!(mongoid_config_path)
+  
+  twitter_init
 end
 
 helpers do
