@@ -20,16 +20,19 @@
 				$.get( "/cards?after=" + dateWeCareAbout , function( cardDataArray ) {
 
 				$.each(cardDataArray, function(i, cardData) {
-					var template;
-					if(!!cardData['imageURI']){
-						template = $('#cardTemplateWithImage').html();
-					} else {
-						template = $('#cardTemplate').html();
-					}
-					var html = Mustache.to_html(template, cardData);
-					var obj = $(jQuery.parseHTML(html));
-					obj.hide().prependTo("#posts-container");
-					$("#posts-container").children().fadeIn("slow");
+					//if(cardData.PublishedTime != null) //Only get published posts.
+					//{
+						var template;
+						if(!!cardData['imageURI']){
+							template = $('#cardTemplateWithImage').html();
+						} else {
+							template = $('#cardTemplate').html();
+						}
+						var html = Mustache.to_html(template, cardData);
+						var obj = $(jQuery.parseHTML(html));
+						obj.hide().prependTo("#posts-container");
+						$("#posts-container").children().fadeIn("slow");
+					//}
 			  		});
 				});
 			}, 3000);
