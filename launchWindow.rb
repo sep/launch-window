@@ -45,7 +45,7 @@ get '/cards' do
 				:title => 'This is the title', 
 				:name => 'Bob',
 				:imageURI => 'http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Wild_Turkeys.jpg/250px-Wild_Turkeys.jpg'},
-				{:id => 2
+				{:id => 2,
          :message => 'this is another awesome message', 
 				 :title => 'This is another title', 
 				 :name => 'Dave'}]
