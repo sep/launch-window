@@ -29,9 +29,9 @@ T-150s Two and a half minutes before launch, the launch commander gives the fina
 T-0 Liftoff!
 T+70s Approximately seventy seconds after liftoff, the Falcon 9 rocket has reached supersonic speed. Just after passing Mach 1, the rocket experiences "Max Q", the point of maximum stress on the vehicle due to the combination of thrust and air resistance.
 T+158s Just after two and a half minutes into the flight, the Falcon 9's first stage has exhausted almost all of its fuel and the main engines are turned off...an event known as "Main Engine Cut-Off" or MECO.
-T+161 After the Falcon 9's first stage engines turn off, the entire first stage of the rocket becomes dead weight holding back the rest of the craft. So, this weight is removed by separating the first stage from the second stage by firing explosive bolts holding the two together. This is known as "first stage separation". As part of this mission, the Falcon 9 first stage will attempt to fly to and land softly on a barge positioned in the Atlantic Ocean. If successful, the first stage will be examined for possible reuse in a future mission.
-T+169 With the first stage of the rocket out of the way, the second stage's single Merlin engine fires to further propel the craft toward the desired orbit.
-T+209 Nose fairing jettison
+T+161 Seconds after the Falcon 9's first stage engines turn off, the entire first stage of the rocket becomes dead weight holding back the rest of the craft. So, this weight is removed by separating the first stage from the second stage by pneumatically adjusting the mechanical fittings that hold the two stages together. This is known as "first stage separation". As part of this mission, the Falcon 9 first stage will attempt to fly to and land softly on a barge positioned in the Atlantic Ocean. If successful, the first stage will be examined for possible reuse in a future mission.
+T+169 Just less than three minutes after launch, with the first stage of the rocket out of the way, the second stage's single Merlin engine fires to further propel the craft toward the desired orbit.
+T+209 Approximately three and a half minutes after launch, the aerodynamic fairing that covered and protected the coupling mechanics on the nose of the Dragon capsule is jettisoned to reduce weight and begin preparations for eventual docking with the ISS.
 First stage landing attempt on barge.
-T+577 Second stage cutoff
-T+580 capsule sep/orbit achieved
+T+577 Nine and a half minutes after launch, the engine on the Falcon 9's second stage is cut off and the craft has almost achieved the desired orbit for Dragon capsule separation.
+T+580 A few seonds after the second stage engine shuts down, the Dragon module separates from the Falcon's second stage and the powered ascent of the craft is over. The seond stage will fall back into the Earth's atmosphere and burn up on re-entry.
