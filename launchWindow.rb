@@ -18,9 +18,9 @@ configure do
   twitter_init
 
   #Seed Content for testing
-  #nowUTCDate = Time.now.to_i
-  #newCard = Card.new(content: "This is my card content", image: "images/spaceappslogo.png", sequence_number: 1, published_time: nowUTCDate)
-  #newCard.save!
+  nowUTCDate = Time.now.to_i
+  newCard = Card.new(content: "This is my card content", image: "images/spaceappslogo.png", sequence_number: 1, published_time: nil)
+  newCard.save!
 end
 
 helpers do
@@ -45,6 +45,24 @@ get '/admin' do
   erb :admin, :locals => {:launchName => "ADMIN PANEL - - - SpaceX CRS-6 Launch", :launchHastag => "#CRS-6"}
 end
 
+get '/cards/unpublished' do
+  messages = []
+  Card.where(published_time: nil).each do |card|
+    messages.append({:id => card.id.to_s, :message => card.content, :imageURI => card.image, :sequenceNumber => card.sequence_number, :publishedTime => nil})
+  end
+
+  messages.sort_by!{|m| m[:sequenceNumber]}
+
+  content_type :json
+  messages.to_json
+end
+
+post '/publish/:id' do
+  card = Card.find(params['id'])
+  card.published_time = DateTime.now.new_offset(0)
+  card.save!
+end
+
 get '/cards' do 
   after = params[:after]
   afterDateTime = DateTime.new(2000,1,1)
@@ -54,7 +72,7 @@ get '/cards' do
 
   messages = []
   Card.where(:published_time.gt => afterDateTime).each do |card|
-    messages.append({:id => card.id, :message => card.content, :name => "Bob", :imageURI => card.image, :sequenceNumber => card.sequence_number, :publishedTime => card.published_time.to_s})
+    messages.append({:id => card.id.to_s, :message => card.content, :name => "Bob", :imageURI => card.image, :sequenceNumber => card.sequence_number, :publishedTime => card.published_time.to_s})
   end
   
   #Demo Content
