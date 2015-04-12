@@ -4,4 +4,15 @@ task :start, [:port] do |t, args|
   exec "rerun \"foreman start -p #{args[:port]}\""
 end
 
+task :thingy do
+  require 'mongoid'
+  require_relative 'models/card'
+  require 'dotenv'
+
+  Dotenv.load
+
+  card = Card.first
+  p card
+end
+
 task :default => :start

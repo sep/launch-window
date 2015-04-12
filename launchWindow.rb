@@ -51,7 +51,7 @@ get '/cards/unpublished' do
     messages.append({:id => card.id.to_s, :message => card.content, :imageURI => card.image, :sequenceNumber => card.sequence_number, :publishedTime => nil})
   end
 
-  messages.sort_by!{|m| m[:sequenceNumber]}
+  messages.sort_by!{|m| m[:sequenceNumber]}.reverse!
 
   content_type :json
   messages.to_json
