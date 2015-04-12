@@ -42,7 +42,7 @@ get '/' do
 end
 
 get '/admin' do
-  erb :admin, :locals => {:launchName => "ADMIN PANEL - - - SpaceX CRS-6 Launch", :launchHastag => "#CRS6}
+  erb :admin, :locals => {:launchName => "ADMIN PANEL - - - SpaceX CRS-6 Launch", :launchHastag => "#CRS6"}
 end
 
 get '/cards' do 
