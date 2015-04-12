@@ -3,14 +3,14 @@ require 'json'
 require 'twitter'
 
 def twitter_init
-  if (ENV["TWITTER_CONSUMER_SECRET"].nil? || ENV["TWITTER_TOKEN_SECRET"].nil?)
+  if (ENV["TWITTER_CONSUMER_SECRET"].nil? || ENV["TWITTER_TOKEN_SECRET"].nil? || ENV["TWITTER_CONSUMER_KEY"].nil? || ENV["TWITTER_ACCESS_TOKEN"].nil?)
     return
   end
   
   $twitter_client = Twitter::Streaming::Client.new do |config|
-    config.consumer_key        = "xHqPm3OaIJ9EVS3oIB0elQyQg"
+    config.consumer_key        = ENV.fetch("TWITTER_CONSUMER_KEY")
     config.consumer_secret     = ENV.fetch("TWITTER_CONSUMER_SECRET")
-    config.access_token        = "3150020329-32IHFKN3mEEoJIJxQVSLVCAL6DiRBRXi2LtKLFp"
+    config.access_token        = ENV.fetch("TWITTER_ACCESS_TOKEN")
     config.access_token_secret = ENV.fetch("TWITTER_TOKEN_SECRET")
   end
   
@@ -20,7 +20,7 @@ def twitter_init
 end
 
 def twitter_read
-  $twitter_client.filter(track: "Nintendo") do |tweet|
+  $twitter_client.filter(track: "NASA,space") do |tweet|
     $twitter_mutex.synchronize do
       $tweet_buffer.push(tweet) unless tweet.retweeted_status?
       $tweet_buffer.shift() if $tweet_buffer.length > 20
