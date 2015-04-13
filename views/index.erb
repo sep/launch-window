@@ -13,7 +13,7 @@
 
 <script>
 	var lastQueriedTime = null;
-	getCards();
+	//getCards();
 	
 	setPostsHeight();
 	
@@ -28,37 +28,29 @@
 	function getCards() 
 	{
 		$.get( "/cards?after=" + lastQueriedTime , function( cardDataArray ) {
+			var newCards = [];
 		
-		$.each(cardDataArray, function(i, cardData) {
-			var template;
-			if(!!cardData['imageURI']){
-				template = $('#cardTemplateWithImage').html();
-			} else {
-				template = $('#cardTemplate').html();
-			}
-			var html = Mustache.to_html(template, cardData);
-			var obj = $(jQuery.parseHTML(html));
-			if($('#' + cardData['id']).length == 0)
-			{
-				obj.hide().prependTo("#posts-container");
-				$("#posts-container").children().fadeIn("slow");
+			$.each(cardDataArray, function(i, cardData) {
+				var template;
+				if(!!cardData['imageURI']){
+					template = $('#cardTemplateWithImage').html();
+				} else {
+					template = $('#cardTemplate').html();
+				}
+				var html = Mustache.to_html(template, cardData);
+				var obj = $(jQuery.parseHTML(html));
+				if($('#' + cardData['id']).length == 0)
+				{
+					newCards.push({theObj:obj, timeStamp:cardData.publishedTime})
+					//obj.hide().prependTo("#posts-container");
+					//$("#posts-container").children().fadeIn("slow");
 
-				lastQueriedTime = cardData.publishedTime;
-			}
-		});
-
-  		while($(".panel").length > 200)
-  		{
-  			$(".panel:last").remove();
-  		} 		
- });
+					lastQueriedTime = cardData['publishedTime'];
+				}
+			});			
+ 			return newCards	
+ 		});
 	}
- 
-	$(function() {
-		getCards();
-		setInterval(function() {getCards()}, 10000);
-	});
-
 </script>
 
 <script type="text/javascript">
@@ -76,6 +68,7 @@
     
     function getTweets()
     {
+    	var newTweets = []
         $.get("/tweets?after=" + latestTweet, function(tweets) {
             $.each(tweets, function(i, tweet) {
                 var curTimestamp = tweet.timestamp;
@@ -84,18 +77,42 @@
                 var template = $('#twitterCardTemplate').html();
                 var html = Mustache.to_html(template, tweet);
                 var obj = $(jQuery.parseHTML(html));
-                obj.hide().prependTo("#posts-container");
-                $("#posts-container").children().fadeIn("slow");
+
+                newTweets.push({"obj":obj, "timeStamp":curTimestamp})
+                //obj.hide().prependTo("#posts-container");
+                //$("#posts-container").children().fadeIn("slow");
             });
-            while($(".panel").length > 200) {
-                $(".panel:last").remove();
-            }
+            
             updateTimestamps();
         });
-    }
-    
+
+        return newTweets;
+    }    
+</script>
+
+<script>
+    function getNewContent() {
+
+		var tweetsList = getTweets();
+		var cardsList = getCards();
+		var mergedCardsList = cardsList;
+
+		//Sort here
+
+		$.each(mergedCardsList, function(i, item) {
+			item['obj'].prependTo("#posts-container");
+			$("#posts-container").children().fadeIn("slow");
+		});        
+
+    	while($(".panel").length > 200)
+  		{
+  			$(".panel:last").remove();
+  		} 	
+
+    };
+
     $(function() {
-        getTweets();
-        setInterval(function() {getTweets()}, 3000);
+        getNewContent();
+        setInterval(function() {getNewContent()}, 3000);
     });
 </script>
