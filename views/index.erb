@@ -84,9 +84,19 @@
                 var template = $('#twitterCardTemplate').html();
                 var html = Mustache.to_html(template, tweet);
                 var obj = $(jQuery.parseHTML(html));
-                obj.hide().prependTo("#posts-container");
-                $("#posts-container").children().fadeIn("slow");
+
+                if($('.custom-card:first').length == 0)
+                {
+                	obj.hide().prependTo("#posts-container");
+                }
+                else
+                {
+                	obj.hide().insertAfter('.panel:first');
+                }
             });
+
+            $('#posts-container').children().fadeIn(1500);
+
             while($(".panel").length > 200) {
                 $(".panel:last").remove();
             }
