@@ -20,7 +20,7 @@ def twitter_init
 end
 
 def twitter_read
-  $twitter_client.filter(track: "#CRS6,#SpaceX") do |tweet|
+  $twitter_client.filter(track: "#CRS6,SpaceX") do |tweet|
     $twitter_mutex.synchronize do
       $tweet_buffer.push(tweet) unless tweet.retweeted_status?
       $tweet_buffer.shift() if $tweet_buffer.length > 20
