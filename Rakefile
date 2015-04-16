@@ -14,6 +14,11 @@ task :connect_to_db do
   Mongoid.load!(mongoid_config_path)
 end
 
+desc 'Returns all of the cards in the database to the unpublished state (sets published_time to nil)'
+task :unpub_all => :connect_to_db do |t, args|
+  Card.update_all(published_time: nil)
+end
+
 desc 'Seeds the database with fake data'
 task :seed_db, [:count] => :connect_to_db do |t, args|
   args.with_defaults(:count => 20)
