@@ -8,6 +8,11 @@
 		<h2>Published Posts</h2>
 		<div id="pushed-posts-container"></div>
 	</div>
+	<div id="UnpublishButton">
+        <button type="button" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Unpublish All
+        </button>
+    </div>
 </div>
 
 <script>  //Get cards for Unpublished list	
@@ -80,6 +85,11 @@
     $("#pushed-posts-container").on("click", ".panel", function() {
       $.post("unpublish/" + $(this).attr("id"))
       $(this).remove();
+      document.location.reload();
+    }); 
+
+    $("#UnpublishButton").on("click", function() {
+      $.post("unpublish_all/")
       document.location.reload();
     }); 
 

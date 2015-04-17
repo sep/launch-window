@@ -64,6 +64,10 @@ post '/unpublish/:id' do
   card.save!
 end
 
+post '/unpublish_all/' do
+  Card.update_all(published_time: nil)
+end
+
 get '/cards' do 
   after = params[:after]
   afterDateTime = DateTime.new(2000,1,1)
