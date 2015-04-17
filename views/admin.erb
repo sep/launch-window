@@ -76,6 +76,13 @@
       $(this).remove();
       document.location.reload();
     }); 
+
+    $("#pushed-posts-container").on("click", ".panel", function() {
+      $.post("unpublish/" + $(this).attr("id"))
+      $(this).remove();
+      document.location.reload();
+    }); 
+
 </script>
 
 

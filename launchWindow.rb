@@ -58,6 +58,12 @@ post '/publish/:id' do
   card.save!
 end
 
+post '/unpublish/:id' do
+  card = Card.find(params['id'])
+  card.published_time = nil
+  card.save!
+end
+
 get '/cards' do 
   after = params[:after]
   afterDateTime = DateTime.new(2000,1,1)
